@@ -398,6 +398,40 @@ h3 {
   display: none;
 }
 
+/* Resources page */
+.resources {
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 2rem;
+  margin: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.resources::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(107, 255, 220, 0.203) 0%,
+    transparent 50%
+  );
+  animation: float 15s ease-in-out infinite reverse;
+}
+.resources h2 {
+  color: var(--cream);
+}
+
+.resources a {
+  color: var(--retro-pink);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 /* Structure Section */
 .structure {
   background: var(--warm-white);
