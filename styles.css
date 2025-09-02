@@ -1,0 +1,527 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  --secondary-gradient: linear-gradient(135deg, #11ae4d 0%, #8dc8b2 100%);
+  --accent-gradient: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%);
+  --retro-pink: #ff6b9d;
+  --retro-coral: #ff8a80;
+  --retro-peach: #ffab91;
+  --retro-yellow: #f8b500;
+  --retro-lavender: #b39ddb;
+  --retro-mint: #80cbc4;
+  --dark: #102c22;
+  --dark-secondary: #173d2e;
+  --light: #fffbf7;
+  --cream: #fef7f0;
+  --warm-white: #fefcf8;
+  --soft-gray: #8d6e63;
+  --medium-brown: #5d4037;
+  --shadow-sm: 0 1px 2px 0 rgba(255, 107, 157, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(255, 107, 157, 0.15);
+  --shadow-lg: 0 10px 15px -3px rgba(255, 107, 157, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(255, 107, 157, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 251, 247, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+  z-index: 1000;
+  padding: 1.5rem 2rem;
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(255, 251, 247, 0.98);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Image Container */
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+img {
+  border-radius: 4px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 200px;
+  height: auto;
+  text-align: center;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+}
+
+#instructorBio {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--soft-gray);
+  font-weight: 400;
+  padding-bottom: 50px;
+}
+
+h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--medium-brown);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a:hover {
+  color: rgb(255, 255, 255);
+  background-color: #ca96ad;
+  transition: 0.5s;
+}
+
+nav a:hover::before {
+  left: 0;
+}
+
+/* Main Content */
+main {
+  padding-top: 9rem;
+}
+
+/* Hero Section */
+.welcome {
+  padding: 4rem 2rem;
+  text-align: center;
+  /* Makes colors blend from one point to another in a straight line. */
+  background: linear-gradient(
+    135deg,
+    /* opacity (10% visible) */ rgba(255, 107, 157, 0.1) 0%,
+    rgba(248, 181, 0, 0.1) 100%
+  );
+  /* Any absolutely positioned child (like ::before) should use this as the reference box */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation effect */
+.welcome::before {
+  content: "";
+  position: absolute;
+  top: -80%;
+  left: -10%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 156, 0.409) 0%,
+    transparent 50%
+  );
+  animation: slideAcross 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+.welcome > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Defines how the gradient moves */
+@keyframes slideAcross {
+  0%,
+  100% {
+    transform: translate(-25%, -25%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-35%, -35%) rotate(180deg);
+  }
+}
+
+.header {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--soft-gray);
+  font-weight: 400;
+}
+
+/* Section Styling */
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--dark);
+  position: relative; /* Makes this a reference point for ::after */
+}
+
+h2::after {
+  content: ""; /* Creates a "fake" element */
+  position: absolute; /* Places it relative to the h2 */
+  bottom: -10px; /* Sits 10px below the text */
+  left: 50%; /* Starts in the middle of the h2 */
+  transform: translateX(
+    -50%
+  ); /* Shifts it left by half its width → perfectly centered */
+  width: 60px; /* Makes it 60px wide */
+  height: 4px; /* 4px tall (like a bar) */
+  background: var(--secondary-gradient); /* Gives it a gradient background */
+  border-radius: 2px; /* Rounds the edges slightly */
+}
+
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+  color: var(--gray-700);
+}
+
+/* Card Layouts */
+.highlights ul,
+.goals-list,
+.outcome-list,
+.topics ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.highlights li,
+.goals-list li,
+.outcome-list li,
+.topics li {
+  background: var(--warm-white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.highlights li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-gradient);
+}
+
+.goals-list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--secondary-gradient);
+}
+
+.outcome-list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+}
+
+.topics li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    135deg,
+    var(--retro-mint) 0%,
+    var(--retro-lavender) 100%
+  );
+}
+
+.highlights li:hover,
+.goals-list li:hover,
+.outcome-list li:hover,
+.topics li:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.highlights li strong,
+.topics li strong {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+/* Competition Section */
+.competition {
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 2rem;
+  margin: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.competition::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 157, 0.15) 0%,
+    transparent 50%
+  );
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+.competition > * {
+  position: relative;
+  z-index: 1;
+}
+
+.competition h2 {
+  color: var(--light);
+  font-size: 2rem;
+}
+
+.competition h2::after {
+  background: var(--accent-gradient);
+}
+
+.competition p,
+.competition li {
+  font-size: 1.1rem;
+  color: rgba(255, 251, 247, 0.9);
+}
+
+.competition a {
+  color: var(--retro-pink);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.competition a:hover {
+  color: var(--retro-coral);
+}
+
+.competition ul {
+  display: block;
+  padding-left: 2rem;
+  margin-top: 1rem;
+}
+
+.competition li {
+  background: none;
+  padding: 0.5rem 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.competition li::before {
+  display: none;
+}
+
+/* Structure Section */
+.structure {
+  background: var(--warm-white);
+  border-radius: 2rem;
+  margin: 2rem;
+  border: 1px solid rgba(248, 181, 0, 0.2);
+}
+
+.structure h3 {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.structure ul {
+  display: block;
+  padding-left: 2rem;
+  margin: 1rem 0;
+}
+
+.structure li {
+  background: none;
+  padding: 0.5rem 0;
+  box-shadow: none;
+  border-radius: 0;
+  list-style: disc;
+}
+
+.structure li::before {
+  display: none;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-secondary);
+  color: var(--light);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: rgba(255, 251, 247, 0.8);
+}
+
+footer a {
+  color: var(--retro-pink);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--retro-coral);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  main {
+    padding-top: 7rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  .welcome {
+    padding: 2rem 1rem;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .highlights ul,
+  .goals-list,
+  .outcome-list,
+  .topics ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .competition,
+  .structure {
+    margin: 2rem 1rem;
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
